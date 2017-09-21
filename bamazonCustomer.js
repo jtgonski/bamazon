@@ -61,8 +61,8 @@ function start() {
 							}
 
 			 				console.log("Order placed successfully!"); 
-							console.log("TOTAL FOR THIS ITEM: $" + totalPrice);
-							console.log("GRAND TOTAL: $" + grandTotal); 
+							console.log("TOTAL FOR THIS ITEM: $" + totalPrice.toFixed(2));
+							console.log("GRAND TOTAL: $" + grandTotal.toFixed(2)); 
 							chooseNext(); 
 							}
 						);
@@ -78,7 +78,7 @@ function start() {
 }
 
 function displayProducts() {
-	connection.query("SELECT * FROM products", function(err, res) {
+	connection.query("SELECT item_id, product_name, price FROM products", function(err, res) {
 		if (err) throw err; 
 		console.table(res);
 	});
